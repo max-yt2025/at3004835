@@ -63,7 +63,7 @@ Contributors:
             <!-- Dominic (Placeholder) -->
       <td align="center" valign="top" width="14.28%">
         <a href="#">
-          <img src="https://via.placeholder.com/100" width="100px;" alt="Dominic"/>
+          <img src="https://via.placeholder.com/100" width="100px;" alt="Donate to the guy who needs money"/>
           <br />
           <sub><b>Dominic</b></sub>
         </a>
