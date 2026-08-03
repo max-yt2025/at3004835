@@ -13,11 +13,7 @@ Unblocks Every Site even with school blockers.
 ---------------------------------------------------------------------------------------
 
 # 🔗 Available Links:
-[YMAL](https://search.ymal.space) (THIS WILL BE THE ONLY USED IF ANYTHING BAD HAPPENES AGAIN)
-
-[Google](https://google.com)
-
-# We are giving y'all a 2nd chance to use the system, but this isn't using Google Anymore, It's gonna be using YMAL Private Search Engine.
+[CLICK ME TO UNLOCK!]()
 
 ---------------------------------------------------------------------------------------
 
@@ -44,42 +40,3 @@ Use of these links should comply with your local network rules (e.g., school or 
 If you are a network administrator or school staff member and need to restrict access to certain websites, please configure your network filtering or firewall settings accordingly.
 
 ---------------------------------------------------------------------------------------
-
-Contributors: 
-
-<table>
-  <tbody>
-    <tr>
-      <!-- Max (Leader) -->
-      <td align="center" valign="top" width="14.28%">
-        <a href="https://ta3004835.onrender.com/">
-          <img src="https://avatars.githubusercontent.com/u/3004835?v=4" width="100px;" alt="Max"/>
-          <br />
-          <sub><b>Max Crafter YT</b></sub>
-        </a>
-        <br />
-        <span title="Leader">⭐ Leader</span>
-      </td>
-            <!-- Dominic (Placeholder) -->
-      <td align="center" valign="top" width="14.28%">
-        <a href="#">
-          <img src="https://via.placeholder.com/100" width="100px;" alt="Donate to the guy who needs money"/>
-          <br />
-          <sub><b>Dominic</b></sub>
-        </a>
-        <br />
-        <span title="Co"Leader>⭐ Co Leader</span>
-      </td>
-                  <!-- Dominic (Placeholder) -->
-      <td align="center" valign="top" width="14.28%">
-        <a href="#">
-          <img src="https://via.placeholder.com/100" width="100px;" alt="GGDade-Dev"/>
-          <br />
-          <sub><b>GGDade-Dev</b></sub>
-        </a>
-        <br />
-        <span title="Co"Leader>⭐ Developer</span>
-      </td>
-    </tr>
-  </tbody>
-</table>
