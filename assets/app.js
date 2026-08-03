@@ -1,98 +1,343 @@
-// URL Redirect
+// ======================================
+// AT3004835 LaunchPad - app.js
+// ======================================
+
+
+// ===============================
+// Loading Screen
+// ===============================
+
+window.addEventListener("load", () => {
+
+    const loader = document.getElementById("loader");
+
+    if(loader){
+
+        setTimeout(() => {
+
+            loader.style.opacity = "0";
+
+            setTimeout(() => {
+
+                loader.style.display = "none";
+
+            }, 500);
+
+
+        }, 2000);
+
+    }
+
+});
+
+
+
+// ===============================
+// URL Redirect System
+// ===============================
 
 function openURL(){
 
-let input=document.getElementById("urlInput").value.trim();
+    let input = document
+        .getElementById("urlInput")
+        .value
+        .trim();
 
-if(!input) return;
+
+    if(!input){
+        return;
+    }
 
 
-if(!input.startsWith("http")){
+    // Common shortcuts
 
-input="https://"+input;
+    const shortcuts = {
+
+        "google":
+        "https://google.com",
+
+        "youtube":
+        "https://youtube.com",
+
+        "discord":
+        "https://discord.com",
+
+        "tiktok":
+        "https://tiktok.com",
+
+        "snapchat":
+        "https://snapchat.com",
+
+        "github":
+        "https://github.com",
+
+        "roblox":
+        "https://roblox.com",
+
+        "spotify":
+        "https://spotify.com"
+
+    };
+
+
+    let lower =
+    input.toLowerCase();
+
+
+
+    if(shortcuts[lower]){
+
+        window.location.href =
+        shortcuts[lower];
+
+        return;
+
+    }
+
+
+
+    // Add https automatically
+
+    if(
+        !input.startsWith("http://") &&
+        !input.startsWith("https://")
+    ){
+
+        input =
+        "https://" + input;
+
+    }
+
+
+
+    // Same tab redirect
+
+    window.location.href = input;
+
 
 }
 
 
-window.location.href=input;
 
-}
+// Enter key search
+
+document.addEventListener(
+"keydown",
+(event)=>{
 
 
+    const input =
+    document.getElementById("urlInput");
 
-document
-.getElementById("urlInput")
-.addEventListener("keydown",function(e){
 
-if(e.key==="Enter"){
+    if(
+        event.key === "Enter" &&
+        document.activeElement === input
+    ){
 
-openURL();
+        openURL();
 
-}
+    }
+
 
 });
 
 
 
 
-// Clock
+// ===============================
+// Clock + Date
+// ===============================
+
 
 function updateClock(){
 
-let now=new Date();
+
+    const now =
+    new Date();
 
 
-document.getElementById("clock").innerHTML =
-now.toLocaleTimeString();
+
+    const time =
+    now.toLocaleTimeString(
+        [],
+        {
+            hour:"2-digit",
+            minute:"2-digit",
+            second:"2-digit"
+        }
+    );
 
 
-document.getElementById("date").innerHTML =
-now.toDateString();
+
+    const date =
+    now.toLocaleDateString(
+        [],
+        {
+            weekday:"long",
+            year:"numeric",
+            month:"long",
+            day:"numeric"
+        }
+    );
+
+
+
+    const clock =
+    document.getElementById("clock");
+
+
+    const dateElement =
+    document.getElementById("date");
+
+
+
+    if(clock){
+
+        clock.innerHTML =
+        time;
+
+    }
+
+
+    if(dateElement){
+
+        dateElement.innerHTML =
+        date;
+
+    }
+
 
 }
 
 
-setInterval(updateClock,1000);
+
+setInterval(
+updateClock,
+1000
+);
+
 
 updateClock();
 
 
 
 
-// Theme
-
-let button=document.getElementById("themeToggle");
-
-
-button.onclick=()=>{
-
-document.body.classList.toggle("light");
+// ===============================
+// Dark / Light Mode
+// ===============================
 
 
-if(document.body.classList.contains("light")){
+const themeButton =
+document.getElementById(
+"themeToggle"
+);
 
-button.innerHTML="☀️";
 
-localStorage.theme="light";
+
+function setTheme(theme){
+
+
+    if(theme === "light"){
+
+
+        document.body
+        .classList
+        .add("light");
+
+
+        if(themeButton){
+
+            themeButton.innerHTML =
+            "☀️";
+
+        }
+
+
+    }else{
+
+
+        document.body
+        .classList
+        .remove("light");
+
+
+        if(themeButton){
+
+            themeButton.innerHTML =
+            "🌙";
+
+        }
+
+
+    }
+
 
 }
 
-else{
 
-button.innerHTML="🌙";
 
-localStorage.theme="dark";
+// Button click
+
+if(themeButton){
+
+
+themeButton.onclick = ()=>{
+
+
+    const isLight =
+    document.body
+    .classList
+    .contains("light");
+
+
+
+    if(isLight){
+
+        setTheme("dark");
+
+        localStorage
+        .setItem(
+            "theme",
+            "dark"
+        );
+
+
+    }else{
+
+
+        setTheme("light");
+
+        localStorage
+        .setItem(
+            "theme",
+            "light"
+        );
+
+
+    }
+
+
+};
+
 
 }
 
-}
 
 
 
-if(localStorage.theme==="light"){
+// Load saved theme
 
-document.body.classList.add("light");
 
-button.innerHTML="☀️";
+const savedTheme =
+localStorage.getItem(
+"theme"
+);
+
+
+
+if(savedTheme){
+
+    setTheme(savedTheme);
 
 }
