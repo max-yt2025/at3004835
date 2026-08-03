@@ -62,3 +62,37 @@ background-position:0% 50%;
 
 
 }
+
+
+.ad {
+
+
+margin:30px auto;
+
+
+height:90px;
+
+max-width:728px;
+
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+
+background:
+
+rgba(255,255,255,.08);
+
+
+border-radius:15px;
+
+
+font-size:14px;
+
+
+opacity:.7;
+
+}
