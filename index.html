@@ -3,72 +3,107 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quick Links</title>
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
+<title>AT3004835 LaunchPad</title>
 
-body {
-    background: #121212;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.container {
-    text-align: center;
-}
-
-h1 {
-    margin-bottom: 25px;
-    font-size: 2rem;
-}
-
-.link {
-    display: block;
-    width: 220px;
-    margin: 12px auto;
-    padding: 15px;
-    background: #1f1f1f;
-    border: 2px solid #444;
-    border-radius: 12px;
-    color: white;
-    text-decoration: none;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: 0.25s;
-}
-
-.link:hover {
-    background: #2d2d2d;
-    border-color: #4da3ff;
-    transform: scale(1.05);
-}
-</style>
+<link rel="stylesheet" href="assets/style.css">
 </head>
+
 <body>
 
-<div class="container">
-    <h1>Quick Links</h1>
-
-    <div class="link" onclick="go('https://www.google.com')">Google</div>
-    <div class="link" onclick="go('https://discord.com')">Discord</div>
-    <div class="link" onclick="go('https://www.tiktok.com')">TikTok</div>
-    <div class="link" onclick="go('https://www.snapchat.com')">Snapchat</div>
+<div id="loader">
+    <div class="logo">AT3004835</div>
+    <div class="loading-bar">
+        <div></div>
+    </div>
+    <p>Launching...</p>
 </div>
 
-<script>
-function go(url) {
-    window.location.href = url;
-}
-</script>
+
+<button id="themeToggle">🌙</button>
+
+
+<main class="container">
+
+<h1>AT3004835</h1>
+<p class="subtitle">Your modern web LaunchPad</p>
+
+
+<div class="search-box">
+
+<input 
+id="urlInput"
+placeholder="Search or enter website URL..."
+autocomplete="off">
+
+<button onclick="openURL()">Go</button>
+
+</div>
+
+
+<section class="card">
+
+<h2>⭐ Popular Links</h2>
+
+
+<div class="links">
+
+<a href="https://google.com">Google</a>
+<a href="https://discord.com">Discord</a>
+<a href="https://youtube.com">YouTube</a>
+<a href="https://tiktok.com">TikTok</a>
+<a href="https://snapchat.com">Snapchat</a>
+<a href="https://github.com">GitHub</a>
+<a href="https://roblox.com">Roblox</a>
+<a href="https://spotify.com">Spotify</a>
+
+</div>
+
+</section>
+
+
+
+<section class="info">
+
+<div class="widget">
+
+<h2>🕒 Time</h2>
+<p id="clock">Loading...</p>
+<p id="date"></p>
+
+</div>
+
+
+<div class="widget">
+
+<h2>🌦 Weather</h2>
+
+<p>Coming soon</p>
+
+</div>
+
+</section>
+
+
+
+</main>
+
+
+<footer>
+
+<a href="about.html">About</a>
+<a href="privacy.html">Privacy</a>
+<a href="disclaimer.html">Disclaimer</a>
+<a href="contact.html">Contact</a>
+
+<p>
+© 2026 AT3004835
+</p>
+
+</footer>
+
+
+<script src="assets/app.js"></script>
 
 </body>
 </html>
