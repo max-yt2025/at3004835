@@ -1,0 +1,43 @@
+.links a {
+
+height:120px;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:18px;
+
+font-weight:600;
+
+background:
+rgba(255,255,255,0.12);
+
+border:
+1px solid rgba(255,255,255,.2);
+
+}
+
+
+.links span {
+
+font-size:35px;
+
+margin-bottom:10px;
+
+}
+
+
+.links a:hover {
+
+box-shadow:
+0 0 25px #38bdf8;
+
+transform:
+translateY(-8px);
+
+}
