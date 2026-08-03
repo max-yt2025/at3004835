@@ -40,3 +40,9 @@ Use of these links should comply with your local network rules (e.g., school or 
 If you are a network administrator or school staff member and need to restrict access to certain websites, please configure your network filtering or firewall settings accordingly.
 
 ---------------------------------------------------------------------------------------
+
+# 📌 Take Down WARNING:
+If this gets found and chrome://chrome-signin gets removed, There's a backup but 
+We need 2 dollars to buy a Domain that will be unblocked so you can use
+
+---------------------------------------------------------------------------------------
