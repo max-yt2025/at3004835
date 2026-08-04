@@ -1,0 +1,2 @@
+# AT3004835 ads.txt
+# Add Google AdSense publisher ID after approval
