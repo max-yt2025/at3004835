@@ -64,15 +64,15 @@ background-position:0% 50%;
 }
 
 
-.ad {
+.ad{
 
+width:100%;
 
-margin:30px auto;
-
+max-width:728px;
 
 height:90px;
 
-max-width:728px;
+margin:30px auto;
 
 
 display:flex;
@@ -83,16 +83,62 @@ justify-content:center;
 
 
 background:
-
 rgba(255,255,255,.08);
 
 
-border-radius:15px;
+border-radius:20px;
 
 
-font-size:14px;
+border:
+1px dashed rgba(255,255,255,.3);
 
 
-opacity:.7;
+}
+
+
+
+#cookieBox{
+
+position:fixed;
+
+bottom:20px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+
+width:90%;
+
+max-width:500px;
+
+
+padding:20px;
+
+
+background:
+rgba(0,0,0,.8);
+
+
+border-radius:20px;
+
+
+backdrop-filter:blur(15px);
+
+
+display:none;
+
+
+text-align:center;
+
+z-index:999;
+
+
+}
+
+
+#cookieBox button{
+
+margin-top:10px;
 
 }
