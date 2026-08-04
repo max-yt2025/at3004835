@@ -1,321 +1,144 @@
-// ======================================
-// AT3004835 LaunchPad - app.js
-// ======================================
+// AT3004835 LaunchPad
 
 
-// ===============================
 // Loading Screen
-// ===============================
 
-window.addEventListener("load", () => {
+window.addEventListener("load",()=>{
 
-    const loader = document.getElementById("loader");
-
-    if(loader){
-
-        setTimeout(() => {
-
-            loader.style.opacity = "0";
-
-            setTimeout(() => {
-
-                loader.style.display = "none";
-
-            }, 500);
+let loader=document.getElementById("loader");
 
 
-        }, 2000);
+if(loader){
 
-    }
+setTimeout(()=>{
+
+loader.style.opacity="0";
+
+
+setTimeout(()=>{
+
+loader.style.display="none";
+
+},500);
+
+
+},2000);
+
+}
 
 });
 
 
 
-// ===============================
-// URL Redirect System
-// ===============================
+
+// URL Redirect
 
 function openURL(){
 
-    let input = document
-        .getElementById("urlInput")
-        .value
-        .trim();
+let input=document
+.getElementById("urlInput")
+.value
+.trim();
 
 
-    if(!input){
-        return;
-    }
+if(!input)return;
 
 
-    // Common shortcuts
+if(!input.startsWith("http")){
 
-    const shortcuts = {
+input="https://"+input;
 
-        "google":
-        "https://google.com",
-
-        "youtube":
-        "https://youtube.com",
-
-        "discord":
-        "https://discord.com",
-
-        "tiktok":
-        "https://tiktok.com",
-
-        "snapchat":
-        "https://snapchat.com",
-
-        "github":
-        "https://github.com",
-
-        "roblox":
-        "https://roblox.com",
-
-        "spotify":
-        "https://spotify.com"
-
-    };
+}
 
 
-    let lower =
-    input.toLowerCase();
-
-
-
-    if(shortcuts[lower]){
-
-        window.location.href =
-        shortcuts[lower];
-
-        return;
-
-    }
-
-
-
-    // Add https automatically
-
-    if(
-        !input.startsWith("http://") &&
-        !input.startsWith("https://")
-    ){
-
-        input =
-        "https://" + input;
-
-    }
-
-
-
-    // Same tab redirect
-
-    window.location.href = input;
+window.location.href=input;
 
 
 }
 
 
 
-// Enter key search
 
-document.addEventListener(
-"keydown",
-(event)=>{
-
-
-    const input =
-    document.getElementById("urlInput");
-
-
-    if(
-        event.key === "Enter" &&
-        document.activeElement === input
-    ){
-
-        openURL();
-
-    }
-
-
-});
-
-
-
-
-// ===============================
-// Clock + Date
-// ===============================
-
+// Clock
 
 function updateClock(){
 
-
-    const now =
-    new Date();
+let now=new Date();
 
 
-
-    const time =
-    now.toLocaleTimeString(
-        [],
-        {
-            hour:"2-digit",
-            minute:"2-digit",
-            second:"2-digit"
-        }
-    );
+document.getElementById("clock").innerHTML =
+now.toLocaleTimeString();
 
 
-
-    const date =
-    now.toLocaleDateString(
-        [],
-        {
-            weekday:"long",
-            year:"numeric",
-            month:"long",
-            day:"numeric"
-        }
-    );
-
-
-
-    const clock =
-    document.getElementById("clock");
-
-
-    const dateElement =
-    document.getElementById("date");
-
-
-
-    if(clock){
-
-        clock.innerHTML =
-        time;
-
-    }
-
-
-    if(dateElement){
-
-        dateElement.innerHTML =
-        date;
-
-    }
-
+document.getElementById("date").innerHTML =
+now.toDateString();
 
 }
 
 
-
-setInterval(
-updateClock,
-1000
-);
-
+setInterval(updateClock,1000);
 
 updateClock();
 
 
 
 
-// ===============================
-// Dark / Light Mode
-// ===============================
 
+// Theme
 
-const themeButton =
-document.getElementById(
-"themeToggle"
-);
+let themeButton =
+document.getElementById("themeToggle");
 
 
 
 function setTheme(theme){
 
+if(theme==="light"){
 
-    if(theme === "light"){
+document.body.classList.add("light");
 
-
-        document.body
-        .classList
-        .add("light");
+themeButton.innerHTML="☀️";
 
 
-        if(themeButton){
-
-            themeButton.innerHTML =
-            "☀️";
-
-        }
+}else{
 
 
-    }else{
+document.body.classList.remove("light");
+
+themeButton.innerHTML="🌙";
 
 
-        document.body
-        .classList
-        .remove("light");
-
-
-        if(themeButton){
-
-            themeButton.innerHTML =
-            "🌙";
-
-        }
-
-
-    }
-
+}
 
 }
 
 
 
-// Button click
-
 if(themeButton){
 
-
-themeButton.onclick = ()=>{
-
-
-    const isLight =
-    document.body
-    .classList
-    .contains("light");
+themeButton.onclick=()=>{
 
 
-
-    if(isLight){
-
-        setTheme("dark");
-
-        localStorage
-        .setItem(
-            "theme",
-            "dark"
-        );
+let light =
+document.body.classList.contains("light");
 
 
-    }else{
+if(light){
+
+setTheme("dark");
+
+localStorage.theme="dark";
 
 
-        setTheme("light");
-
-        localStorage
-        .setItem(
-            "theme",
-            "light"
-        );
+}else{
 
 
-    }
+setTheme("light");
+
+localStorage.theme="light";
+
+
+}
 
 
 };
@@ -326,18 +149,47 @@ themeButton.onclick = ()=>{
 
 
 
-// Load saved theme
+if(localStorage.theme){
+
+setTheme(localStorage.theme);
+
+}
 
 
-const savedTheme =
-localStorage.getItem(
-"theme"
+
+
+
+// Cookies
+
+
+function acceptCookies(){
+
+localStorage.setItem(
+"cookies",
+"accepted"
 );
 
 
+document.getElementById(
+"cookieBox"
+).style.display="none";
 
-if(savedTheme){
 
-    setTheme(savedTheme);
+}
+
+
+
+if(
+!localStorage.getItem("cookies")
+){
+
+let box=document.getElementById("cookieBox");
+
+
+if(box){
+
+box.style.display="block";
+
+}
 
 }
